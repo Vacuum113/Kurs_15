@@ -16,19 +16,19 @@ public:
 
 	Element<TKey, TValue> *array;
 
-	Map(int  k);
+	Map(int);
 
 	~Map();
 
-	void Put(TKey key, TValue value);
+	void Put(TKey, TValue);
 
-	TValue* Get(TKey key, int &number);
+	TValue* Get(int&);
 
-	void Remove(TValue value);
+	void Remove(TValue);
 
 	int Count();
 
-	void GetALL(TValue*& newArr);
+	void GetALL(TValue*&);
 
 	void Sort_descen();
 
@@ -84,45 +84,22 @@ void Map<TKey, TValue>::Put(TKey key, TValue value) {
 
 }
 template <class TKey, class TValue>
-TValue* Map<TKey, TValue>::Get(TKey key, int &number) {
+TValue* Map<TKey, TValue>::Get(int& _num) {
 
-	int n = 0;
+	for (int i = 0; i < count; i++) 
+	{
+		if (i == _num)
+		{
+			TValue *tmp = new TValue[1];
+			tmp[0] = array[i].value;
+			TValue *Arr = new TValue[1];
+			Arr[0] = tmp[0];
 
-	bool no = true;
-
-	TValue *tmp = new TValue[1024];
-
-	for (int i = 0; i < count; i++) {
-
-		if (array[i].key == key) {
-
-			tmp[n] = array[i].value;
-
-			n++;
-
-			no = false;
-
+			return Arr;
 		}
-
 	}
 
-	if (no) {
-
-		return NULL;
-
-	}
-
-	TValue *newArr = new TValue[n];
-
-	for (int i = 0; i < n; i++) {
-
-		newArr[i] = tmp[i];
-
-	}
-
-	number = n;
-
-	return newArr;
+	return NULL;
 
 }
 
@@ -162,106 +139,6 @@ void Map<TKey, TValue>::GetALL(TValue*& newArr) {
 		tmp[i] = array[i].value;
 
 		newArr[i] = tmp[i];
-
-	}
-
-}
-
-template <class TKey, class TValue>
-void Map<TKey, TValue>::Sort_descen() {
-
-	TValue tmp;
-
-	for (int i = 0; i < count; i++) {
-
-		for (int j = i; j < count; j++) {
-
-			if (array[i].value < array[j].value) {
-
-				tmp = array[j].value;
-
-				array[j].value = array[i].value;
-
-				array[i].value = tmp;
-
-			}
-
-		}
-
-	}
-
-}
-
-template <class TKey, class TValue>
-void Map<TKey, TValue>::Sort_ascen() {
-
-	TValue tmp;
-
-	for (int i = 0; i < count; i++) {
-
-		for (int j = i; j < count; j++) {
-
-			if (array[i].value > array[j].value) {
-
-				tmp = array[i].value;
-
-				array[i].value = array[j].value;
-
-				array[j].value = tmp;
-
-			}
-
-		}
-
-	}
-
-}
-
-template <class TKey, class TValue>
-void Map<TKey, TValue>::Sort_spec_ascen() {
-
-	TValue tmp;
-
-	for (int i = 0; i < count; i++) {
-
-		for (int j = i; j < count; j++) {
-
-			if (Book::comp(array[i].value, array[j].value) == 1) {
-
-				tmp = array[i].value;
-
-				array[i].value = array[j].value;
-
-				array[j].value = tmp;
-
-			}
-
-		}
-
-	}
-
-}
-
-template <class TKey, class TValue>
-void Map<TKey, TValue>::Sort_spec_descen() {
-
-	TValue tmp;
-
-	for (int i = 0; i < count; i++) {
-
-		for (int j = i; j < count; j++) {
-
-			if (Book::comp(array[i].value, array[j].value) == 0) {
-
-				tmp = array[j].value;
-
-				array[j].value = array[i].value;
-
-				array[i].value = tmp;
-
-			}
-
-		}
 
 	}
 

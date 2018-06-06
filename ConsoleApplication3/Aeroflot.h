@@ -8,15 +8,15 @@ class Aeroflot
 {
 private:
 
-		char depar_date[100];
-		int  number;
-		char dstnshn[100];
-		char FIO[100];
+	char depar_date[100];
+	int  number;
+	char dstnshn[100];
+	char FIO[100];
 
 public:
 	
-	Aeroflot() {};
-	
+	Aeroflot();
+
 	Aeroflot(char*, char*, int, char*);
 
 	~Aeroflot();
@@ -31,7 +31,11 @@ public:
 
 	int Number() { return number; }
 
-	Aeroflot Search(char*, int);
+	Aeroflot* Search(char*, int);
+
+	Aeroflot  operator=(Aeroflot*);
+
+	int operator==(Aeroflot&);
 
 	friend ostream &operator<<(ostream &out, Aeroflot& d)
 	{
