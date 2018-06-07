@@ -7,6 +7,8 @@ Aeroflot::Aeroflot()
 	
 }
 
+//Конструктор 
+
 Aeroflot::Aeroflot(char* fio, char* dst, int num, char* dd)
 {
 	for (int i = 0; i < 100; i++)  FIO[i] = fio[i];
@@ -18,7 +20,7 @@ Aeroflot::Aeroflot(char* fio, char* dst, int num, char* dd)
 	this->number = num;
 }
 
-
+//Добавление данных в объект
 
 void Aeroflot::Add(char* fio, char* dst, int num, char* dd)
 {
@@ -35,6 +37,8 @@ Aeroflot::~Aeroflot()
 {
 }
 
+//Перегрузка оператора сравнения
+
 int Aeroflot::operator==(Aeroflot& tmp)
 {
 	if (((strcmp(tmp.FIO, FIO)) == 0) &
@@ -46,6 +50,7 @@ int Aeroflot::operator==(Aeroflot& tmp)
 		
 }
 
+//Перегрузка оператора присваивания 
 
 Aeroflot Aeroflot::operator=(Aeroflot* tmp)
 {
@@ -60,6 +65,7 @@ Aeroflot Aeroflot::operator=(Aeroflot* tmp)
 	return *this;
 }
 
+//Метод поиска по дате вылета и номеру рейса
 
 Aeroflot* Aeroflot::Search(char* dd, int num)
 {

@@ -37,6 +37,8 @@ public:
 
 	int operator==(Aeroflot&);
 
+	//Дружественная функция перегрузки опереатора вывода
+
 	friend ostream &operator<<(ostream &out, Aeroflot& d)
 	{
 		out << d.FIO<< " " << d.dstnshn << " " << d.number << " " << d.depar_date << " ";

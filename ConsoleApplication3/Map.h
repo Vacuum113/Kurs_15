@@ -30,16 +30,9 @@ public:
 
 	void GetALL(TValue*&);
 
-	void Sort_descen();
-
-	void Sort_ascen();
-
-	void Sort_spec_ascen();
-
-	void Sort_spec_descen();
-
 };
 
+//Конструктор
 
 template <class TKey, class TValue>
 Map<TKey, TValue>::Map(int  k) {
@@ -50,7 +43,7 @@ Map<TKey, TValue>::Map(int  k) {
 
 }
 
-
+//Деструктор
 
 template <class TKey, class TValue>
 Map<TKey, TValue>::~Map() {
@@ -58,6 +51,8 @@ Map<TKey, TValue>::~Map() {
 	delete[] array;
 
 }
+
+//Метод для внесение элеменда в коллекцию
 
 template <class TKey, class TValue>
 void Map<TKey, TValue>::Put(TKey key, TValue value) {
@@ -83,8 +78,11 @@ void Map<TKey, TValue>::Put(TKey key, TValue value) {
 	count++;
 
 }
+
+//Метод для получения элемента из коллекции
+
 template <class TKey, class TValue>
-TValue* Map<TKey, TValue>::Get(int& _num) {
+TValue* Map<TKey, TValue>::Get(int& _num ) {
 
 	for (int i = 0; i < count; i++) 
 	{
@@ -103,6 +101,8 @@ TValue* Map<TKey, TValue>::Get(int& _num) {
 
 }
 
+//Метод для удаления элемента
+
 template <class TKey, class TValue>
 void Map<TKey, TValue>::Remove(TValue value) {
 
@@ -120,12 +120,15 @@ void Map<TKey, TValue>::Remove(TValue value) {
 
 }
 
+//Метод для получения значения count
 
 template <class TKey, class TValue>
 int Map<TKey, TValue>::Count() {
 
 	return count;
 }
+
+//Метод для получения всех элементов в новый массив
 
 template <class TKey, class TValue>
 void Map<TKey, TValue>::GetALL(TValue*& newArr) {
